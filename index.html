@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr"> <!-- -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="js/set_wifi.js"></script>
+    <script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </head>
+
+  <body>
+    <header><h1>BeagleBone Setup Page</h1></header>
+    <div class="middle">
+    <div class="outer">
+    <div class="row">
+      <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist"></div>
+      </div>
+      <script>function displayPW(a){
+        /*Hide Tab specific elements when different Tab is clicked*/
+        var goAwayClassInput = document.getElementsByClassName('goAwayInput');
+        var goAwayClassButt = document.getElementsByClassName('goAwayButt');
+        var comeBackClassNotConn = document.getElementsByClassName('notConnected');
+        console.log(goAwayClassInput);
+        console.log(goAwayClassButt);
+        for(var i = 0; i<goAwayClassButt.length;i++){
+          if(goAwayClassInput[i] !== undefined){
+            goAwayClassInput[i].style.display = "none";
+          }
+          goAwayClassButt[i].style.display = "none";
+          comeBackClassNotConn[i].style.display = "block";
+        }
+        /*Show Connection Button and Password input if relevant*/
+        var PWDisplay = document.getElementById('wifiIn'+a);
+        var connButt = document.getElementById('wifiButt'+a);
+        var connType = document.getElementById('connTypeId'+a);
+        console.log(connType);
+        if(PWDisplay !== null){
+              PWDisplay.style.display = "block";
+        }
+        if(connButt !== null){
+            connButt.style.display = "block";
+        }
+        if(connType !== null){
+        connType.style.display = "none";
+        }
+      };</script>
+
+    </div>
+  </div>
+  </div>
+</body>
